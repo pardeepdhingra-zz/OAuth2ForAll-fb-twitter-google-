@@ -1,9 +1,9 @@
 == This is simple Omniauth Example without devise 
 
 
-#install this gem in your gem file 
+=====Copy/Paste this gem in your gem file 
 
-#This gem is working on Rails 3.2.6 version with ruby 1.9.3p545
+=====This gem is working on Rails 3.2.6 version with ruby 1.9.3p545
 
 gem 'jquery-rails'
 gem 'omniauth-facebook', '1.4.0'
@@ -12,9 +12,7 @@ gem 'omniauth-google-oauth2'
 gem 'json_pure' 
 gem 'json'
 
-#.........................................................................
-
-#Then add this code on sessions_controller.rb (if you have session_controller.rb file is exist in controller folder if not make a file)
+====Then add this code on sessions_controller.rb (if you have session_controller.rb file is exist in controller folder if not make a file)
 
 class SessionsController < ApplicationController
 
@@ -32,14 +30,14 @@ class SessionsController < ApplicationController
   end
   
 end
-#Now next step to add this code in application_controller.rb in your controller folder
+====Now next step to add this code in application_controller.rb in your controller folder
 
  helper_method :current_user
   private
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
-#Now add this code in User model in your model folder 
+====Now add this code in User model in your model folder 
 
 class User < ActiveRecord::Base
 
@@ -52,8 +50,8 @@ def self.create_with_omniauth(auth)
 end
 end
 
-#Now this is your last step create a omniauth.rb file in you config/initializers folder 
-#Now add this code in omniauth.rb file 
+====Now this is your last step create a omniauth.rb file in you config/initializers folder 
+=====Now add this code in omniauth.rb file 
 equire "omniauth-google-oauth2"
 OmniAuth.config.logger = Rails.logger
 Rails.application.config.middleware.use OmniAuth::Builder do
